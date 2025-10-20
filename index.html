@@ -5,84 +5,121 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Emily & Gabriel</title>
 
-  <!-- Fonts (fallback since Gotham is licensed) -->
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&family=Open+Sans:wght@600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg-dim: 0.55;       /* darkness over the photo */
-      --bg-pos: 60%;        /* vertical focal point (try 55–70%) */
+      --bg-dim: 0.45; /* lighter overlay */
+      --bg-pos: 60%;
     }
-    * { box-sizing: border-box; }
+
     html, body {
       height: 100%;
       margin: 0;
+      color: #fff;
+      text-align: center;
+      font-family: "Open Sans", sans-serif;
     }
+
     body {
       display: grid;
       place-items: center;
-      text-align: center;
-      color: #fff;
       background:
         linear-gradient(rgba(0,0,0,var(--bg-dim)), rgba(0,0,0,var(--bg-dim))),
-        url("bg.jpeg") center var(--bg-pos) / cover no-repeat fixed;
+        url("bg.jpg") center var(--bg-pos) / cover no-repeat fixed;
       padding: 24px;
     }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+      animation: fadeIn 1.5s ease both;
+    }
+
+    /* --- Date --- */
+    .date {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      font-style: italic;
+      letter-spacing: 0.03em;
+      font-weight: 400;
+      gap: 0.75rem;
+    }
+
+    .date::before,
+    .date::after {
+      content: "";
+      flex: 1 1 40px;
+      height: 1px;
+      background: rgba(255,255,255,0.8);
+      max-width: 50px;
+    }
+
+    /* --- Names --- */
     h1 {
-      font-family: "Josefin Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-family: "Josefin Sans", sans-serif;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
-      font-size: clamp(1.8rem, 4vw, 3rem);
-      margin: 0 0 0.6rem 0;
+      font-size: clamp(2.4rem, 5.5vw, 4.8rem);
+      letter-spacing: 0.06em;
+      margin: 0.6rem 0 2rem;
       text-shadow: 0 2px 12px rgba(0,0,0,0.45);
     }
-    .subtitle {
-      font-style: italic;
-      opacity: 0.95;
-      margin-bottom: 1.75rem;
-      font-size: clamp(1.05rem, 2.2vw, 1.25rem);
-      text-shadow: 0 1px 8px rgba(0,0,0,0.35);
-    }
+
+    /* --- Buttons --- */
     .buttons {
       display: flex;
-      gap: 14px;
+      gap: 16px;
       flex-wrap: wrap;
       justify-content: center;
     }
+
     button {
       appearance: none;
-      border: 2px solid rgba(255,255,255,0.9);   /* no color fill, no emojis */
+      border: 2px solid rgba(255,255,255,0.9);
       background: transparent;
       color: #fff;
       border-radius: 12px;
-      padding: 12px 22px;
-      font-family: "Open Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      padding: 14px 28px;
+      font-family: "Open Sans", sans-serif;
       font-weight: 700;
-      text-transform: uppercase;                 /* all caps */
-      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
       font-size: 0.95rem;
       cursor: pointer;
       box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-      transition: transform 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, filter 0.15s ease;
+      transition: transform 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
     }
+
     button:hover {
       transform: translateY(-1px);
-      background-color: rgba(255,255,255,0.12);
+      background-color: rgba(255,255,255,0.15);
       border-color: #fff;
-      filter: brightness(1.02);
+    }
+
+    /* --- Animation --- */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     @media (max-width: 520px) {
-      .buttons { gap: 10px; }
+      h1 { font-size: 2rem; }
+      .buttons { flex-direction: column; width: 100%; }
       button { width: 100%; max-width: 260px; }
     }
   </style>
 </head>
+
 <body>
   <main>
+    <div class="date">14 August 2026</div>
     <h1>Emily & Gabriel</h1>
-    <div class="subtitle"><em>14 August 2026</em></div>
     <div class="buttons">
       <button onclick="location.href='https://pt.emilyandgabriel.com'">Português</button>
       <button onclick="location.href='https://en.emilyandgabriel.com'">English</button>
