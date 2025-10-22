@@ -3,29 +3,174 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Welcome — Emily & Gabriel</title>
+  <title>Emily & Gabriel — Welcome</title>
   <link rel="stylesheet" href="../assets/styles.css" />
+
+  <style>
+    /* ===== HEADER NAVBAR ===== */
+    header.navbar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 3rem;
+      z-index: 10;
+      font-family: "Inter", sans-serif;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .nav-left, .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .nav-left a {
+      color: white;
+      text-decoration: none;
+      opacity: 0.9;
+      transition: opacity 0.2s ease;
+    }
+
+    .nav-left a:hover {
+      opacity: 1;
+    }
+
+    /* Center icon */
+    .nav-center img {
+      width: 50px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      opacity: 0.9;
+    }
+
+    /* RSVP button */
+    .rsvp-btn {
+      border: 1.5px solid white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      background: transparent;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: all 0.2s ease;
+    }
+
+    .rsvp-btn:hover {
+      background: white;
+      color: black;
+    }
+
+    /* ===== MARQUEE ===== */
+    .marquee {
+      position: relative;
+      overflow: hidden;
+      white-space: nowrap;
+      margin-top: 2rem;
+      color: rgba(255,255,255,0.85);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.4rem;
+      font-style: italic;
+    }
+
+    .marquee span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: marquee 14s linear infinite;
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-100%); }
+    }
+
+    /* Positioning adjustments */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero h1 {
+      margin-bottom: 0.4rem;
+    }
+
+    @media (max-width: 720px) {
+      header.navbar {
+        flex-direction: column;
+        gap: 0.6rem;
+        padding: 1rem;
+      }
+
+      .nav-left {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .rsvp-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+      }
+    }
+  </style>
 </head>
+
 <body>
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <nav class="nav-left">
+      <a href="#stay">Where to Stay</a>
+      <a href="#things">Things to Do</a>
+      <a href="#schedule">Schedule</a>
+      <a href="#faq">FAQ</a>
+      <a href="#story">Our Story</a>
+    </nav>
 
-<header class="hero">
-  <img src="../assets/welcome-hero.jpg" alt="Emily and Gabriel">
-  <div class="eyebrow">— 14 August 2026 · Porto, Portugal —</div>
-  <h1>Welcome</h1>
-  <div class="divider"></div>
-</header>
+    <div class="nav-center">
+      <img src="../assets/logo.svg" alt="Emily & Gabriel logo" />
+    </div>
 
-<main class="container">
-  <p class="lede">We’re so excited to celebrate with you in beautiful Porto.</p>
+    <div class="nav-right">
+      <button class="rsvp-btn" onclick="location.href='#rsvp'">RSVP</button>
+    </div>
+  </header>
 
-  <p>
-    Our wedding weekend will bring together family and friends from around the world.
-    On this site, you’ll find everything you need to plan your trip—venue details,
-    travel tips, the weekend schedule, and more.
-  </p>
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <img src="../assets/welcome-hero.jpg" alt="Emily and Gabriel">
+    <div class="eyebrow">— 14 August 2026 · Porto, Portugal —</div>
+    <h1>Welcome</h1>
+    <div class="divider"></div>
+    <div class="marquee">
+      <span>We're getting married! We're getting married! We're getting married! </span>
+    </div>
+  </section>
 
-  <p class="meta">Date: 14 August 2026 &nbsp;•&nbsp; Location: Porto, Portugal</p>
-</main>
+  <!-- MAIN CONTENT -->
+  <main class="container">
+    <p class="lede">We’re so excited to celebrate with you in beautiful Porto.</p>
 
+    <p>
+      Our wedding weekend will bring together family and friends from around the world.
+      On this site, you’ll find everything you need to plan your trip—venue details,
+      travel tips, the weekend schedule, and more.
+    </p>
+
+    <p class="meta">Date: 14 August 2026 &nbsp;•&nbsp; Location: Porto, Portugal</p>
+  </main>
 </body>
 </html>
