@@ -159,44 +159,105 @@
   }
 
   /* ===== CELEBRATION SECTION ===== */
-  .celebration {
-    background: #fdf6f0;
-    padding: 120px 5%;
-    display: flex;
-    justify-content: center;
-  }
+.celebration {
+  background: #fdf6f0;
+  padding: 120px 5%;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
 
+.celebration-inner {
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.celebration-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  object-fit: cover;
+}
+
+.celebration-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.celebration-text h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.8rem;
+  color: #222;
+  margin-bottom: 1rem;
+}
+
+.celebration-text .intro {
+  color: #555;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  line-height: 1.8;
+}
+
+.celebration-text .details h3 {
+  font-family: "Inter", sans-serif;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.celebration-text .details p {
+  margin-bottom: 0.6rem;
+  color: #444;
+}
+
+.celebration-text .link {
+  color: #1a4ba0;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+.celebration-text .link:hover {
+  color: #0a3175;
+}
+
+/* Make sure the RSVP button matches the main one */
+.celebration .rsvp-btn {
+  margin-top: 1.5rem;
+  border: 1.5px solid #333;
+  color: #333;
+  background: transparent;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.7rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.celebration .rsvp-btn:hover {
+  background: #333;
+  color: #fff;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 860px) {
   .celebration-inner {
-    max-width: 1100px;
-    display: grid;
-    grid-template-columns: 1.1fr 1fr;
-    gap: 4rem;
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .celebration-image {
+    order: -1;
+  }
+  .celebration {
+    padding: 80px 1.5rem;
+  }
+  .celebration-text {
     align-items: center;
   }
-
-  .celebration-text h2 {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 2.8rem;
-    color: #222;
-    margin-bottom: 1rem;
-  }
-
-  .celebration-text .intro {
-    color: #555;
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
-    line-height: 1.8;
-  }
-
-  .celebration-text .details h3 {
-    font-family: "Inter", sans-serif;
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 0.5rem;
-    color: #333;
-  }
-
-  .celebration-text .details p {
-    margin-bottom: 0.6rem;
-    color: #444
+}
